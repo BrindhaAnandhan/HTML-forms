@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emp</title>
+</head>
+<body>
+    <center>
+        <h1> Emp Table Creation </h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="eno"> Emp No: </label>
+            <input type="number" name="eno"><br><br>
+
+            <label for="ename">Ename</label>
+            <input type="text" name="ename"><br><br>
+            
+
+            <label for="job"> Job </label>
+            <input type="text" name="job"><br><br>
+            
+
+            <label for="mgr"> Mgr </label>
+            <input type="number" name="mgr"><br><br>
+            
+
+            <label for="date">Date</label>
+            <input type="date" name="date" id=""><br><br>
+            
+
+            <label for="comm"> Comm </label>
+            <input type="number" name="comm"><br><br>
+
+            <label for="deptno"> DeptNo </label>
+            <select name="deptno" id="">
+                {% for em in emp %}
+                <option value="{{ em.Dno}}">{{ em.Dno }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Create Table"><br><br>
+
+
+        </form>
+    </center>
+</body>
+</html>

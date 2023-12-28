@@ -19,5 +19,23 @@ def dept(request):
         return render(request,'land.html', data)
     return render(request, 'dept.html')
 
-
-
+def emp(request):
+    
+    if request.method == 'POST':
+        eno = request.POST['eno']
+        ename = request.POST['ename']
+        job = request.POST['job']
+        mgr = request.POST['mgr']
+        date = request.POST['date']
+        comm = request.POST['comm']
+        deptno = request.POST['deptno']
+        dept_o = Dept.objects.get(Dno = deptno)
+        eo = Emp.objects.get_or_create(Empno =eno, Ename = ename, Job = job, MGR = mgr, Hiredate = date, Comm = comm, Deptno = dept_o)[0]
+        eo.save()
+        Eo = Emp.objects.all()
+        data = {'emp1': Eo}
+        return render(request, 'display.html', data)
+    else:
+        Do = Dept.objects.all()
+        data1 = {'emp': Do}
+        return render(request, 'emp.html', data1)

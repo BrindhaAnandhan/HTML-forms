@@ -9,3 +9,16 @@ class Dept(models.Model):
 
     def __str__(self):
         return self.Dname
+    
+
+class Emp(models.Model):
+    Empno = models.IntegerField(primary_key=True)
+    Ename = models.CharField(max_length=100)
+    Job = models.CharField(max_length=100)
+    MGR = models.IntegerField()
+    Hiredate = models.DateField(auto_now_add=True)
+    Comm = models.IntegerField(default=0)
+    Deptno = models.ForeignKey(Dept, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Ename 
