@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBox</title>
+</head>
+<body>
+    <center>
+        <h1>CheckBox</h1>
+        <form method="POST" action="{% url 'display_filtred' %}">
+            {% csrf_token %}
+            <h3>Select CheckBox</h3>
+            {% for em in dis%}
+            <label for="search">{{ em.Dname }}</label>
+            <input type="checkbox" name="search" id="search" value="{{ em.Deptno }}"><br><br>
+            {% endfor %}
+
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+    
+</body>
+</html>

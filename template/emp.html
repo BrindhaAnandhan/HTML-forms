@@ -35,11 +35,18 @@
             <label for="deptno"> DeptNo </label>
             <select name="deptno" id="">
                 {% for em in emp %}
-                <option value="{{ em.Dno}}">{{ em.Dno }}</option>
+                <option value="{{ em.Deptno }}">{{ em.Dname }}</option>
                 {% endfor %}
             </select>
-
             <input type="submit" value="Create Table"><br><br>
+
+            <!-- <label for="search"> Search For Employee</label>
+            <select name="deptno" id="" multiple>
+                {% for em in emp %}
+                <option value="{{ em.Dno}}">{{ em.Dname }}</option>
+                {% endfor %}
+            </select><br><br>
+            <input type="submit" value="Search"><br> -->
 
 
         </form>

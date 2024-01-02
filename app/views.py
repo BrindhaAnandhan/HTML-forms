@@ -29,7 +29,7 @@ def emp(request):
         date = request.POST['date']
         comm = request.POST['comm']
         deptno = request.POST['deptno']
-        dept_o = Dept.objects.get(Dno = deptno)
+        dept_o = Dept.objects.get(Deptno = deptno)
         eo = Emp.objects.get_or_create(Empno =eno, Ename = ename, Job = job, MGR = mgr, Hiredate = date, Comm = comm, Deptno = dept_o)[0]
         eo.save()
         Eo = Emp.objects.all()
@@ -39,3 +39,29 @@ def emp(request):
         Do = Dept.objects.all()
         data1 = {'emp': Do}
         return render(request, 'emp.html', data1)
+
+def display_filtred(request):
+    if request.method == 'POST':
+        deptlist = request.POST.getlist('search')
+        dob = Emp.objects.none()
+        for i in deptlist:
+            dob = dob | Emp.objects.filter(Deptno = i)
+        d1 = {'emp': dob}
+        return render(request, 'display.html', d1)
+    else:
+        QLDO = Dept.objects.all()
+        d = {'dis': QLDO}
+        return render(request, 'display_filtred.html', d)
+
+def CheckBox(request):
+    if request.method == 'POST':
+        deptlist = request.POST.getlist('search')
+        dob = Emp.objects.none()
+        for i in deptlist:
+            dob = dob | Emp.objects.filter(Deptno = i)
+        d1 = {'emp': dob}
+        return render(request, 'display.html', d1)
+    else:
+        QLDO = Dept.objects.all()
+        d = {'dis': QLDO}
+        return render(request, 'CheckBox.html', d)
