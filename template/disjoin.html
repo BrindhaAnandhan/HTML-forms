@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>disjoin</title>
+</head>
+<body>
+    <center>
+        <h1>equijoins</h1>
+
+        <table border="3px">
+            <tr>
+                <th>empno</th>
+                <th>ename</th>
+                <th>job</th>
+                <th>mgr</th>
+                <th>hiredate</th>
+                <th>comm</th>
+                <th>deptno</th>
+                <th>dname</th>
+                <th>dlocation</th>
+
+            </tr>
+
+            {% for emp in empobj %}
+                <tr>
+                    <td>{{emp.Empno}}</td>
+                    
+                    <td>{{emp.Ename}}</td>
+                    
+                    <td>{{emp.Job}}</td>
+                    
+                    <td>{{emp.MGR.Empno}}</td>
+                    
+                    <td>{{emp.Hiredate}}</td>
+                    
+                    <td>{{emp.Comm}}</td>
+                    
+                    <td>{{emp.Deptno.Deptno}}</td>
+                    
+                    <td>{{emp.Deptno.Dname}}</td>
+                    
+                    <td>{{emp.Deptno.Dloc}}</td>
+
+                </tr>
+
+
+            {% endfor %}
+        </table>
+
+    </body>
+</html>

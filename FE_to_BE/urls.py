@@ -24,4 +24,5 @@ urlpatterns = [
     path('emp/', emp, name= 'emp'),
     path('display_filtred/', display_filtred, name = 'display_filtred'),
     path('CheckBox/', CheckBox, name='CheckBox'),
+    path('disjoin/', disjoin, name='disjoin'),
 ]

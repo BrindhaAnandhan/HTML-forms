@@ -65,3 +65,9 @@ def CheckBox(request):
         QLDO = Dept.objects.all()
         d = {'dis': QLDO}
         return render(request, 'CheckBox.html', d)
+
+
+def disjoin(request):
+    empobject = Emp.objects.select_related('Deptno').filter(Comm__gt = 2020)
+    d = {'empobj':empobject}
+    return render(request,'disjoin.html',d )
